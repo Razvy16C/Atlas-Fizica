@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas de Fizică X</title>
+<meta name="description" content="Site interactiv cu capitolele de fizică din clasa a X-a și recapitulare de mecanică: teorie, formule, simulări și teste.">
+<meta name="theme-color" content="#14213f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314213f'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e8a9bb'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23f2e9d6' stroke-width='3'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23f2e9d6' stroke-width='3' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23f2e9d6' stroke-width='3' transform='rotate(120 32 32)'/%3E%3C/svg%3E">
+<script src="js/0-tema-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i></div>
+<header class="top">
+  <button class="hbtn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="side"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Capitole</span></button>
+  <a class="brand" href="#acasa">Atlas de Fizică X <small>clasa a X-a</small></a>
+  <span class="grow"></span>
+  <span class="prog" id="progTop"></span>
+  <button class="hbtn icon" id="sndBtn" type="button" aria-pressed="false" aria-label="Pornește muzica de fundal" title="Pornește muzica de fundal"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 12.2V3.4l7-1.6v8.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="4.4" cy="12.4" r="1.9" fill="currentColor"/><circle cx="11.4" cy="10.8" r="1.9" fill="currentColor"/></svg></button>
+  <button class="hbtn" id="setBtn" type="button" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 5.4a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Setări</span></button>
+</header>
+<div class="shell">
+<nav class="side" id="side" aria-label="Capitole"></nav>
+<main class="main" id="main">
+
+<section class="page" id="acasa">
+  <div class="hero">
+    <p class="kicker">Programa clasei a X-a</p>
+    <h1>Fizica clasei a X-a, de explorat</h1>
+    <p class="lead"><span id="totalCh">28</span> de capitole despre mișcare, forțe, energie, gaze, căldură, electricitate și magnetism. Fiecare are teoria pe scurt, o simulare pe care o poți modifica și un test de trei întrebări. Progresul se păstrează în browserul tău.</p>
+  </div>
+  <div class="domains" id="homeGrid"></div>
+  <p class="note">Capitolele de termodinamică și de electricitate și magnetism urmăresc proiecția curriculară pentru clasa a X-a (filiera teoretică, profilul real). Mecanica se studiază în clasa a IX-a și e inclusă aici ca recapitulare. Notațiile pot diferi puțin de cele din manualul tău, așa că ghidează-te după cele de la clasă.</p>
+  <p class="note"><a href="#formular">Formularul complet</a> · <button type="button" class="linkbtn" data-open-settings>Setări: temă și muzică de fundal</button></p>
+</section>
+
+<!-- ============ TERMODINAMICĂ ============ -->
+
+<section class="page" id="cap-1" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 1</p>
+    <h1>Agitația termică. Structura discretă a substanței</h1>
+    <p class="lead">Orice substanță e făcută din particule aflate în mișcare continuă. Cantitatea de substanță se măsoară prin numărul lor, iar unitatea este molul.</p></header>
+  <div class="theory">
+    <p>Substanțele au structură discretă: sunt alcătuite din atomi, molecule sau ioni. Particulele se mișcă haotic și fără oprire, iar această mișcare se numește <b>agitație termică</b>. O dovadă directă este mișcarea browniană: granulele mici de polen din apă zigzaghează sub loviturile moleculelor apei. Cu cât temperatura e mai mare, cu atât agitația termică e mai intensă.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>ν</i> = <i>m</i>/<i>μ</i> = <i>N</i>/<i>N</i><sub>A</sub></span><small>cantitatea de substanță, în mol</small></p>
+      <p class="fm"><span class="mf"><i>N</i><sub>A</sub> = 6,022·10<sup>23</sup> mol<sup>−1</sup></span><small>numărul lui Avogadro</small></p>
+      <p class="fm"><span class="mf"><i>m</i><sub>0</sub> = <i>μ</i>/<i>N</i><sub>A</sub></span><small>masa unei molecule</small></p>
+      <p class="fm"><span class="mf"><i>T</i> = <i>t</i> + 273,15</span><small><i>T</i> în kelvin, <i>t</i> în grade Celsius</small></p>
+      <p class="fm"><span class="mf">1 u = 1,66·10<sup>−27</sup> kg</span><small>unitatea atomică de masă</small></p>
+      <p class="fm"><span class="mf"><i>V</i><sub>μ</sub> = 22,4 L/mol</span><small>volumul molar al gazelor în condiții normale (0 °C, 1 atm)</small></p>
+    </div>
+    <p>Masa molară <i>μ</i> are, în g/mol, aceeași valoare numerică cu masa moleculară relativă. Pentru apă, <i>μ</i> = 18 g/mol, deci 18 g de apă conțin 6,022·10<sup>23</sup> molecule.</p>
+  </div>
+  <div class="lab" data-lab="mol"></div>
+  <div class="quiz" data-quiz="1"></div>
+</section>
+
+<section class="page" id="cap-2" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 2</p>
+    <h1>Noțiuni termodinamice de bază. Modelul gazului ideal</h1>
+    <p class="lead">Starea unui gaz e descrisă prin presiune, volum și temperatură. Pentru gazul ideal, cele trei mărimi sunt legate de o singură ecuație.</p></header>
+  <div class="theory">
+    <p>Un <b>sistem termodinamic</b> este corpul sau grupul de corpuri studiat. Starea lui se descrie prin <b>parametri de stare</b>: presiunea <i>p</i>, volumul <i>V</i>, temperatura <i>T</i> și cantitatea de substanță <i>ν</i>. În <b>echilibru termodinamic</b>, parametrii nu se mai modifică în timp.</p>
+    <p>În <b>modelul gazului ideal</b>, moleculele sunt considerate punctiforme, nu interacționează între ele decât în ciocniri, iar ciocnirile sunt perfect elastice. Presiunea apare din loviturile moleculelor în pereții vasului.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>p</i>·<i>V</i> = <i>ν</i>·<i>R</i>·<i>T</i></span><small>ecuația termică de stare</small></p>
+      <p class="fm"><span class="mf"><i>R</i> = 8,314 J/(mol·K)</span><small>constanta universală a gazelor</small></p>
+      <p class="fm"><span class="mf"><i>p</i> = <sup>1</sup>⁄<sub>3</sub>·<i>n</i>·<i>m</i><sub>0</sub>·<i>v</i><sup>2</sup></span><small>ecuația cinetico-moleculară (<i>n</i> = concentrația)</small></p>
+      <p class="fm"><span class="mf"><i>ε</i><sub>c</sub> = <sup>3</sup>⁄<sub>2</sub>·<i>k</i>·<i>T</i></span><small>energia cinetică medie de translație, <i>k</i> = 1,38·10<sup>−23</sup> J/K</small></p>
+      <p class="fm"><span class="mf"><i>v</i><sub>T</sub> = √(3<i>RT</i>/<i>μ</i>)</span><small>viteza termică</small></p>
+    </div>
+    <p>Temperatura absolută măsoară agitația termică: energia cinetică medie a unei molecule e proporțională cu <i>T</i>. Încearcă simularea de mai jos și urmărește cum se modifică presiunea.</p>
+  </div>
+  <div class="lab" data-lab="gas"></div>
+  <div class="quiz" data-quiz="2"></div>
+</section>
+
+<section class="page" id="cap-3" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 3</p>
+    <h1>Transformările simple ale gazului ideal</h1>
+    <p class="lead">Când un parametru de stare rămâne constant, ecuația de stare se reduce la o lege simplă. Pe diagrama p–V, fiecare transformare are o formă recognoscibilă.</p></header>
+  <div class="theory">
+    <p>La masă constantă de gaz (<i>ν</i> = const.), orice transformare respectă relația generală de mai jos. Cele trei cazuri particulare sunt cele pe care le vezi cel mai des.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>p</i><sub>1</sub><i>V</i><sub>1</sub>/<i>T</i><sub>1</sub> = <i>p</i><sub>2</sub><i>V</i><sub>2</sub>/<i>T</i><sub>2</sub></span><small>legea generală a gazului ideal</small></p>
+      <p class="fm"><span class="mf"><i>p</i>·<i>V</i> = const.</span><small>izotermă (<i>T</i> = const.), legea Boyle–Mariotte. Pe p–V e o hiperbolă.</small></p>
+      <p class="fm"><span class="mf"><i>V</i>/<i>T</i> = const.</span><small>izobară (<i>p</i> = const.), legea Gay-Lussac. Pe p–V e o dreaptă orizontală.</small></p>
+      <p class="fm"><span class="mf"><i>p</i>/<i>T</i> = const.</span><small>izocoră (<i>V</i> = const.), legea lui Charles. Pe p–V e o dreaptă verticală.</small></p>
+    </div>
+    <p>Temperatura din aceste legi este mereu cea absolută, în kelvin. Raportul <i>pV</i>/<i>T</i> este egal cu <i>νR</i>, deci rămâne același în ambele stări.</p>
+  </div>
+  <div class="lab" data-lab="trans"></div>
+  <div class="quiz" data-quiz="3"></div>
+</section>
+
+<section class="page" id="cap-4" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 4</p>
+    <h1>Energia internă, lucrul mecanic și căldura. Principiul I</h1>
+    <p class="lead">Un gaz își poate schimba energia internă primind căldură sau efectuând lucru mecanic. Principiul I spune cum se echilibrează aceste trei mărimi.</p></header>
+  <div class="theory">
+    <p>Energia internă a gazului ideal depinde numai de temperatură. Lucrul mecanic efectuat de gaz este pozitiv la destindere și negativ la comprimare, iar pe diagrama p–V el este aria de sub curbă. Căldura <i>Q</i> este pozitivă când gazul o primește.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf">Δ<i>U</i> = <i>ν</i>·<i>C</i><sub>V</sub>·Δ<i>T</i></span><small><i>C</i><sub>V</sub> = 3<i>R</i>/2 (monoatomic), 5<i>R</i>/2 (biatomic)</small></p>
+      <p class="fm"><span class="mf"><i>C</i><sub>p</sub> = <i>C</i><sub>V</sub> + <i>R</i></span><small>relația lui Robert Mayer</small></p>
+      <p class="fm"><span class="mf"><i>Q</i> = Δ<i>U</i> + <i>L</i></span><small>principiul I al termodinamicii</small></p>
+      <p class="fm"><span class="mf"><i>L</i> = <i>p</i>·Δ<i>V</i></span><small>izobară. Pentru izotermă: <i>L</i> = <i>νRT</i>·ln(<i>V</i><sub>2</sub>/<i>V</i><sub>1</sub>)</small></p>
+      <p class="fm"><span class="mf"><i>pV</i><sup>γ</sup> = const.</span><small>adiabatică (<i>Q</i> = 0), cu γ = <i>C</i><sub>p</sub>/<i>C</i><sub>V</sub></small></p>
+    </div>
+    <ul>
+      <li><b>Izocoră:</b> <i>L</i> = 0, deci <i>Q</i> = Δ<i>U</i>.</li>
+      <li><b>Izotermă:</b> Δ<i>U</i> = 0, deci <i>Q</i> = <i>L</i>.</li>
+      <li><b>Adiabatică:</b> <i>Q</i> = 0, deci Δ<i>U</i> = −<i>L</i>. La destindere gazul se răcește.</li>
+    </ul>
+  </div>
+  <div class="lab" data-lab="first"></div>
+  <div class="quiz" data-quiz="4"></div>
+</section>
+
+<section class="page" id="cap-5" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 5</p>
+    <h1>Calorimetrie</h1>
+    <p class="lead">Două corpuri cu temperaturi diferite, puse în contact, ajung la aceeași temperatură. Căldura cedată de unul este primită de celălalt.</p></header>
+  <div class="theory">
+    <p>Căldura necesară pentru a încălzi un corp depinde de masă, de substanță și de variația de temperatură. Substanțele diferite au <b>călduri specifice</b> <i>c</i> diferite: apa are una neobișnuit de mare, de aceea se încălzește și se răcește greu.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>Q</i> = <i>m</i>·<i>c</i>·Δ<i>T</i></span><small>căldura schimbată, în J</small></p>
+      <p class="fm"><span class="mf"><i>C</i> = <i>m</i>·<i>c</i></span><small>capacitatea calorică, în J/K</small></p>
+      <p class="fm"><span class="mf"><i>Q</i><sub>cedat</sub> = <i>Q</i><sub>primit</sub></span><small>ecuația calorimetrică (fără pierderi)</small></p>
+      <p class="fm"><span class="mf"><i>T</i><sub>e</sub> = (<i>C</i><sub>1</sub><i>T</i><sub>1</sub> + <i>C</i><sub>2</sub><i>T</i><sub>2</sub>)/(<i>C</i><sub>1</sub> + <i>C</i><sub>2</sub>)</span><small>temperatura de echilibru</small></p>
+    </div>
+    <p>Temperatura de echilibru se află între cele două temperaturi inițiale și e mai aproape de cea a corpului cu capacitate calorică mai mare.</p>
+  </div>
+  <div class="lab" data-lab="calor"></div>
+  <div class="quiz" data-quiz="5"></div>
+</section>
+
+<section class="page" id="cap-6" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 6</p>
+    <h1>Principiul II. Ciclul Carnot. Mașini termice</h1>
+    <p class="lead">Un motor termic nu poate transforma în lucru mecanic toată căldura primită. Randamentul maxim depinde doar de cele două temperaturi între care lucrează.</p></header>
+  <div class="theory">
+    <p>O <b>mașină termică</b> preia căldură <i>Q</i><sub>p</sub> de la o sursă caldă, produce lucru mecanic <i>L</i> și cedează căldura <i>Q</i><sub>c</sub> unei surse reci. <b>Principiul II</b> exclude motorul care ar transforma integral căldura în lucru, fără sursă rece. Formularea lui Carnot: randamentul oricărui motor termic care lucrează între aceleași două temperaturi este cel mult egal cu al motorului Carnot.</p>
+    <p>Ciclul Carnot are patru transformări: o izotermă la temperatura sursei calde, o adiabată, o izotermă la temperatura sursei reci și o altă adiabată.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>η</i> = <i>L</i>/<i>Q</i><sub>p</sub> = 1 − |<i>Q</i><sub>c</sub>|/<i>Q</i><sub>p</sub></span><small>randamentul unui motor termic</small></p>
+      <p class="fm"><span class="mf"><i>η</i><sub>Carnot</sub> = 1 − <i>T</i><sub>r</sub>/<i>T</i><sub>c</sub></span><small>temperaturile în kelvin</small></p>
+      <p class="fm"><span class="mf"><i>L</i> = <i>Q</i><sub>p</sub> − |<i>Q</i><sub>c</sub>|</span><small>lucrul mecanic pe un ciclu = aria ciclului</small></p>
+    </div>
+    <p>Motoarele reale, de exemplu cele cu ardere internă, au randamente sub cel Carnot, din cauza frecărilor și a pierderilor de căldură.</p>
+  </div>
+  <div class="lab" data-lab="carnot"></div>
+  <div class="quiz" data-quiz="6"></div>
+</section>
+
+<section class="page" id="cap-7" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 7</p>
+    <h1>Transformări de stare de agregare</h1>
+    <p class="lead">Gheața se topește, apa fierbe. În tot acest timp temperatura stă pe loc, iar căldura primită schimbă structura substanței.</p></header>
+  <div class="theory">
+    <p>Trecerile dintre stările solidă, lichidă și gazoasă se numesc topire, solidificare, vaporizare și condensare (iar trecerea directă solid–gaz, sublimare). La presiune constantă, o substanță pură își păstrează temperatura cât timp durează transformarea. Căldura primită servește la ruperea legăturilor dintre particule, nu la creșterea agitației lor.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>Q</i> = <i>m</i>·<i>λ</i></span><small>căldura latentă pentru masa <i>m</i> care își schimbă starea</small></p>
+      <p class="fm"><span class="mf"><i>λ</i><sub>topire</sub> ≈ 334 kJ/kg</span><small>gheață, la 0 °C</small></p>
+      <p class="fm"><span class="mf"><i>λ</i><sub>vaporizare</sub> ≈ 2256 kJ/kg</span><small>apă, la 100 °C</small></p>
+    </div>
+    <p>Curba de încălzire a apei are trei porțiuni înclinate (gheață, apă, abur) și două paliere orizontale (topire și fierbere). Palierul de la 100 °C e mult mai lung decât cel de la 0 °C, fiindcă vaporizarea cere mai multă căldură.</p>
+  </div>
+  <div class="lab" data-lab="phase"></div>
+  <div class="quiz" data-quiz="7"></div>
+</section>
+
+<section class="page" id="cap-8" data-domain="heat" hidden>
+  <header class="chap-head"><p class="kicker">Termodinamică · capitolul 8</p>
+    <h1>Fenomene de suprafață și fenomene capilare</h1>
+    <p class="lead">Suprafața unui lichid se comportă ca o membrană elastică. De aici vin picăturile sferice și urcarea apei în tuburi foarte înguste.</p></header>
+  <div class="theory">
+    <p>Moleculele de la suprafața unui lichid sunt atrase de cele dinăuntru, așa că suprafața tinde să fie cât mai mică. Această proprietate se descrie prin <b>tensiunea superficială</b> <i>σ</i>. Lichidele <b>ud</b> peretele vasului dacă unghiul de racordare este mai mic de 90° (apa pe sticlă) și <b>nu ud</b> dacă e mai mare (mercurul pe sticlă).</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>σ</i> = <i>F</i>/<i>l</i> = Δ<i>E</i>/Δ<i>S</i></span><small>în N/m sau J/m<sup>2</sup></small></p>
+      <p class="fm"><span class="mf"><i>h</i> = 2<i>σ</i>·cos<i>θ</i>/(<i>ρ</i>·<i>g</i>·<i>r</i>)</span><small>legea lui Jurin, pentru un tub capilar de rază <i>r</i></small></p>
+    </div>
+    <p>Lichidul care udă urcă în capilar (<i>h</i> pozitiv), iar cel care nu udă coboară sub nivelul din vas (<i>h</i> negativ). Cu cât tubul e mai subțire, cu atât diferența de nivel e mai mare.</p>
+  </div>
+  <div class="lab" data-lab="cap"></div>
+  <div class="quiz" data-quiz="8"></div>
+</section>
+
+<!-- ============ MECANICĂ ============ -->
+
+<section class="page" id="mec-1" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M1</p>
+    <h1>Mișcarea rectilinie uniformă</h1>
+    <p class="lead">Un corp se mișcă uniform când parcurge distanțe egale în intervale de timp egale. Viteza lui nu se schimbă.</p></header>
+  <div class="theory">
+    <p>Poziția unui corp față de un reper se notează cu <i>x</i>. În mișcarea rectilinie uniformă (MRU), viteza <i>v</i> este constantă, iar poziția crește liniar cu timpul. Viteza poate fi negativă: atunci corpul merge în sens opus axei.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>v</i> = Δ<i>x</i>/Δ<i>t</i></span><small>viteza, în m/s</small></p>
+      <p class="fm"><span class="mf"><i>x</i> = <i>x</i><sub>0</sub> + <i>v</i>·<i>t</i></span><small>legea mișcării</small></p>
+      <p class="fm"><span class="mf">1 km/h = 1/3,6 m/s</span><small>pentru conversii: 72 km/h = 20 m/s</small></p>
+    </div>
+    <p>Pe graficul <i>x</i>(<i>t</i>), MRU este o dreaptă, iar panta ei este viteza. Două corpuri se întâlnesc când au aceeași poziție: <i>x</i><sub>1</sub>(<i>t</i>) = <i>x</i><sub>2</sub>(<i>t</i>).</p>
+  </div>
+  <div class="lab" data-lab="mru"></div>
+  <div class="quiz" data-quiz="m1"></div>
+</section>
+
+<section class="page" id="mec-2" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M2</p>
+    <h1>Mișcarea rectilinie uniform variată</h1>
+    <p class="lead">Când viteza se schimbă constant în timp, mișcarea are accelerație constantă. Poziția devine o parabolă.</p></header>
+  <div class="theory">
+    <p>Accelerația <i>a</i> arată cu cât se modifică viteza în fiecare secundă. Dacă <i>a</i> și <i>v</i> au același semn, corpul accelerează. Dacă au semne opuse, corpul frânează și se poate opri, apoi se întoarce.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>a</i> = Δ<i>v</i>/Δ<i>t</i></span><small>în m/s²</small></p>
+      <p class="fm"><span class="mf"><i>v</i> = <i>v</i><sub>0</sub> + <i>a</i>·<i>t</i></span><small>legea vitezei</small></p>
+      <p class="fm"><span class="mf"><i>x</i> = <i>x</i><sub>0</sub> + <i>v</i><sub>0</sub><i>t</i> + <i>a</i><i>t</i><sup>2</sup>/2</span><small>legea mișcării</small></p>
+      <p class="fm"><span class="mf"><i>v</i><sup>2</sup> = <i>v</i><sub>0</sub><sup>2</sup> + 2<i>a</i>·Δ<i>x</i></span><small>relația lui Galilei, fără timp</small></p>
+    </div>
+    <p>Aria de sub graficul <i>v</i>(<i>t</i>) este deplasarea. Când viteza își schimbă semnul, deplasarea și spațiul parcurs nu mai sunt egale.</p>
+  </div>
+  <div class="lab" data-lab="mruv"></div>
+  <div class="quiz" data-quiz="m2"></div>
+</section>
+
+<section class="page" id="mec-3" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M3</p>
+    <h1>Căderea liberă și aruncările</h1>
+    <p class="lead">Un corp lăsat liber cade cu accelerația gravitațională. Una aruncat oblic descrie o parabolă, făcută din două mișcări independente.</p></header>
+  <div class="theory">
+    <p>Fără rezistența aerului, orice corp aflat doar sub acțiunea greutății are aceeași accelerație <i>g</i>, indiferent de masă. Pe Pământ, <i>g</i> ≈ 9,81 m/s². În aruncarea oblică, mișcarea pe orizontală este uniformă, iar pe verticală este uniform variată cu <i>a</i> = −<i>g</i>.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>h</i> = <i>g</i><i>t</i><sup>2</sup>/2, <i>v</i> = <i>g</i><i>t</i></span><small>căderea liberă din repaus</small></p>
+      <p class="fm"><span class="mf"><i>x</i> = <i>v</i><sub>0</sub>cos<i>α</i>·<i>t</i></span><small>aruncarea oblică, pe orizontală</small></p>
+      <p class="fm"><span class="mf"><i>y</i> = <i>h</i><sub>0</sub> + <i>v</i><sub>0</sub>sin<i>α</i>·<i>t</i> − <i>g</i><i>t</i><sup>2</sup>/2</span><small>aruncarea oblică, pe verticală</small></p>
+      <p class="fm"><span class="mf"><i>H</i> = <i>v</i><sub>0</sub><sup>2</sup>sin<sup>2</sup><i>α</i>/(2<i>g</i>)</span><small>înălțimea maximă peste punctul de lansare</small></p>
+      <p class="fm"><span class="mf"><i>d</i> = <i>v</i><sub>0</sub><sup>2</sup>sin 2<i>α</i>/<i>g</i></span><small>bătaia, când lansarea și aterizarea sunt la același nivel</small></p>
+    </div>
+    <p>Pentru aceeași viteză inițială și <i>h</i><sub>0</sub> = 0, bătaia maximă se obține la α = 45°. Pe Lună, aceeași aruncare ajunge de șase ori mai departe.</p>
+  </div>
+  <div class="lab" data-lab="proj"></div>
+  <div class="quiz" data-quiz="m3"></div>
+</section>
+
+<section class="page" id="mec-4" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M4</p>
+    <h1>Principiile dinamicii</h1>
+    <p class="lead">Forța este cauza schimbării vitezei. Cu cât masa e mai mare, cu atât aceeași forță produce o accelerație mai mică.</p></header>
+  <div class="theory">
+    <ul>
+      <li><b>Principiul I (inerției):</b> un corp își păstrează starea de repaus sau de mișcare rectilinie uniformă cât timp forța rezultantă este zero.</li>
+      <li><b>Principiul II:</b> accelerația este proporțională cu forța rezultantă și invers proporțională cu masa.</li>
+      <li><b>Principiul III (acțiunii și reacțiunii):</b> dacă un corp acționează cu o forță asupra altuia, și al doilea acționează asupra primului cu o forță egală și de sens opus. Cele două forțe se aplică pe corpuri diferite.</li>
+    </ul>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>F</i><sub>rez</sub> = <i>m</i>·<i>a</i></span><small>forța în newtoni: 1 N = 1 kg·m/s²</small></p>
+      <p class="fm"><span class="mf"><i>G</i> = <i>m</i>·<i>g</i></span><small>greutatea</small></p>
+      <p class="fm"><span class="mf"><i>F</i><sub>f</sub> = <i>μ</i>·<i>N</i></span><small>forța de frecare la alunecare</small></p>
+    </div>
+    <p>În simulare, un corp pe o suprafață orizontală este tras cu o forță. Frecarea se opune mișcării. Dacă forța nu o depășește, corpul rămâne pe loc.</p>
+  </div>
+  <div class="lab" data-lab="dyn"></div>
+  <div class="quiz" data-quiz="m4"></div>
+</section>
+
+<section class="page" id="mec-5" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M5</p>
+    <h1>Planul înclinat și frecarea</h1>
+    <p class="lead">Greutatea se descompune în două componente: una pe plan, care trage corpul în jos, și una perpendiculară, care îl apasă pe suprafață.</p></header>
+  <div class="theory">
+    <p>Pe un plan înclinat cu unghiul <i>α</i>, componenta greutății de-a lungul planului este <i>G</i><sub>t</sub> = <i>mg</i>·sin<i>α</i>. Componenta perpendiculară, <i>G</i><sub>n</sub> = <i>mg</i>·cos<i>α</i>, este echilibrată de reacțiunea normală <i>N</i>. Frecarea acționează în sus pe plan și se opune alunecării.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>N</i> = <i>mg</i>·cos<i>α</i></span><small>reacțiunea normală</small></p>
+      <p class="fm"><span class="mf"><i>a</i> = <i>g</i>(sin<i>α</i> − <i>μ</i>cos<i>α</i>)</span><small>accelerația la coborâre</small></p>
+      <p class="fm"><span class="mf">tg <i>α</i> ≤ <i>μ</i></span><small>condiția ca un corp să rămână în repaus</small></p>
+    </div>
+    <p>Dacă tg α este mai mare decât μ, corpul alunecă. Pe gheață (μ mic) pornește la unghiuri mici, pe cauciuc uscat (μ mare) are nevoie de un plan foarte abrupt.</p>
+  </div>
+  <div class="lab" data-lab="incl"></div>
+  <div class="quiz" data-quiz="m5"></div>
+</section>
+
+<section class="page" id="mec-6" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M6</p>
+    <h1>Lucrul mecanic, puterea și randamentul</h1>
+    <p class="lead">O forță efectuează lucru mecanic doar pe direcția în care se deplasează punctul ei de aplicație.</p></header>
+  <div class="theory">
+    <p>Lucrul mecanic este pozitiv când forța ajută mișcarea (α &lt; 90°), negativ când se opune (α &gt; 90°) și nul când forța e perpendiculară pe deplasare (α = 90°). Puterea măsoară cât de repede se efectuează lucrul.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>L</i> = <i>F</i>·<i>d</i>·cos<i>α</i></span><small>în jouli (J)</small></p>
+      <p class="fm"><span class="mf"><i>P</i> = <i>L</i>/<i>t</i> = <i>F</i>·<i>v</i></span><small>în wați (W)</small></p>
+      <p class="fm"><span class="mf"><i>η</i> = <i>L</i><sub>util</sub>/<i>L</i><sub>consumat</sub></span><small>randamentul, mereu sub 100%</small></p>
+      <p class="fm"><span class="mf">1 CP ≈ 736 W</span><small>cal-putere</small></p>
+    </div>
+    <p>Pe graficul <i>F</i>cosα în funcție de <i>d</i>, lucrul mecanic este aria de sub grafic.</p>
+  </div>
+  <div class="lab" data-lab="work"></div>
+  <div class="quiz" data-quiz="m6"></div>
+</section>
+
+<section class="page" id="mec-7" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M7</p>
+    <h1>Energia mecanică și conservarea ei</h1>
+    <p class="lead">Pe un pendul, energia trece neîncetat din potențială în cinetică și înapoi. Totalul rămâne constant, dacă nu există frecare.</p></header>
+  <div class="theory">
+    <p>Energia cinetică depinde de viteză, iar energia potențială gravitațională depinde de înălțimea față de un nivel de referință. Când singurele forțe care efectuează lucru sunt greutatea și forțele elastice, energia mecanică totală se conservă. Frecarea transformă o parte din ea în căldură.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>E</i><sub>c</sub> = <i>mv</i><sup>2</sup>/2</span><small>energia cinetică</small></p>
+      <p class="fm"><span class="mf"><i>E</i><sub>p</sub> = <i>mgh</i></span><small>energia potențială gravitațională</small></p>
+      <p class="fm"><span class="mf"><i>E</i> = <i>E</i><sub>c</sub> + <i>E</i><sub>p</sub> = const.</span><small>conservarea energiei mecanice</small></p>
+      <p class="fm"><span class="mf">Δ<i>E</i><sub>c</sub> = <i>L</i><sub>rez</sub></span><small>teorema variației energiei cinetice</small></p>
+    </div>
+    <p>În punctul cel mai de jos al pendulului, energia potențială este minimă și cea cinetică este maximă. La capetele oscilației, viteza este zero.</p>
+  </div>
+  <div class="lab" data-lab="energy"></div>
+  <div class="quiz" data-quiz="m7"></div>
+</section>
+
+<section class="page" id="mec-8" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M8</p>
+    <h1>Impulsul și ciocnirile</h1>
+    <p class="lead">Într-un sistem izolat, impulsul total se conservă în orice ciocnire. Energia cinetică se conservă doar la ciocnirea elastică.</p></header>
+  <div class="theory">
+    <p>Impulsul este o mărime vectorială. Forța este variația impulsului în timp. La ciocnirea a două corpuri, forțele dintre ele sunt egale și opuse, deci impulsul total nu se schimbă. Un <b>coeficient de restituție</b> <i>e</i> descrie cât de elastică e ciocnirea: <i>e</i> = 1 pentru cea elastică, <i>e</i> = 0 pentru cea perfect plastică (corpurile rămân lipite).</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>p</i> = <i>m</i>·<i>v</i></span><small>impulsul, în kg·m/s</small></p>
+      <p class="fm"><span class="mf"><i>F</i> = Δ<i>p</i>/Δ<i>t</i></span><small>forma generală a principiului II</small></p>
+      <p class="fm"><span class="mf"><i>m</i><sub>1</sub><i>v</i><sub>1</sub> + <i>m</i><sub>2</sub><i>v</i><sub>2</sub> = <i>m</i><sub>1</sub><i>v</i><sub>1</sub>′ + <i>m</i><sub>2</sub><i>v</i><sub>2</sub>′</span><small>conservarea impulsului</small></p>
+      <p class="fm"><span class="mf"><i>v</i><sub>2</sub>′ − <i>v</i><sub>1</sub>′ = <i>e</i>(<i>v</i><sub>1</sub> − <i>v</i><sub>2</sub>)</span><small>definiția coeficientului de restituție</small></p>
+    </div>
+    <p>La ciocnirea elastică între corpuri de mase egale, vitezele se schimbă între ele.</p>
+  </div>
+  <div class="lab" data-lab="coll"></div>
+  <div class="quiz" data-quiz="m8"></div>
+</section>
+
+<section class="page" id="mec-9" data-domain="mec" hidden>
+  <header class="chap-head"><p class="kicker">Mecanică · capitolul M9</p>
+    <h1>Echilibrul. Momentul forței. Pârghii</h1>
+    <p class="lead">O forță poate roti un corp. Efectul depinde de mărimea forței și de distanța dintre ea și axa de rotație.</p></header>
+  <div class="theory">
+    <p>Momentul unei forțe față de un punct este produsul dintre forță și brațul ei, adică distanța perpendiculară de la punct la dreapta forței. Un corp cu axă fixă e în echilibru de rotație când suma momentelor care îl rotesc într-un sens este egală cu cea a momentelor în sens opus.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>M</i> = <i>F</i>·<i>d</i></span><small>momentul forței, în N·m</small></p>
+      <p class="fm"><span class="mf">Σ<i>M</i> = 0</span><small>echilibrul de rotație</small></p>
+      <p class="fm"><span class="mf"><i>F</i><sub>1</sub><i>d</i><sub>1</sub> = <i>F</i><sub>2</sub><i>d</i><sub>2</sub></span><small>pârghia în echilibru</small></p>
+    </div>
+    <p>Pârghia permite să echilibrezi o forță mare cu una mică, aplicată la un braț mai lung. Exemple: levierul, foarfeca, roaba, balansoarul.</p>
+  </div>
+  <div class="lab" data-lab="lever"></div>
+  <div class="quiz" data-quiz="m9"></div>
+</section>
+
+<!-- ============ ELECTRICITATE ȘI MAGNETISM ============ -->
+
+<section class="page" id="cap-9" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 9</p>
+    <h1>Interacțiunea electrostatică. Legea lui Coulomb</h1>
+    <p class="lead">Sarcinile electrice de același semn se resping, iar cele de semne contrare se atrag. Forța depinde de mărimea sarcinilor și de distanța dintre ele.</p></header>
+  <div class="theory">
+    <p>Sarcina electrică se conservă și este un multiplu al sarcinii elementare <i>e</i>. Legea lui Coulomb dă forța dintre două sarcini punctiforme aflate în repaus. Forța scade cu pătratul distanței și e mai mică într-un mediu cu permitivitate relativă <i>ε</i><sub>r</sub> mare.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>F</i> = <i>k</i>·|<i>q</i><sub>1</sub><i>q</i><sub>2</sub>|/(<i>ε</i><sub>r</sub>·<i>r</i><sup>2</sup>)</span><small>legea lui Coulomb</small></p>
+      <p class="fm"><span class="mf"><i>k</i> = 1/(4π<i>ε</i><sub>0</sub>) = 9·10<sup>9</sup> N·m<sup>2</sup>/C<sup>2</sup></span><small>în vid</small></p>
+      <p class="fm"><span class="mf"><i>ε</i><sub>0</sub> = 8,854·10<sup>−12</sup> F/m</span><small>permitivitatea vidului</small></p>
+      <p class="fm"><span class="mf"><i>e</i> = 1,602·10<sup>−19</sup> C</span><small>sarcina elementară</small></p>
+    </div>
+  </div>
+  <div class="lab" data-lab="coul"></div>
+  <div class="quiz" data-quiz="9"></div>
+</section>
+
+<section class="page" id="cap-10" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 10</p>
+    <h1>Câmpul electrostatic. Potențialul electric. Tensiunea</h1>
+    <p class="lead">O sarcină modifică spațiul din jurul ei, iar o altă sarcină simte o forță în acest câmp. Între două plăci încărcate, câmpul e uniform.</p></header>
+  <div class="theory">
+    <p><b>Intensitatea câmpului electric</b> într-un punct este forța pe unitatea de sarcină de probă. Între două armături plane și paralele, câmpul este <b>uniform</b>: același în toate punctele, orientat de la placa pozitivă spre cea negativă. <b>Tensiunea electrică</b> este lucrul mecanic al câmpului pentru unitatea de sarcină mutată între două puncte.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>E</i> = <i>F</i>/<i>q</i></span><small>definiția intensității câmpului, în V/m sau N/C</small></p>
+      <p class="fm"><span class="mf"><i>E</i> = <i>k</i>·|<i>Q</i>|/(<i>ε</i><sub>r</sub>·<i>r</i><sup>2</sup>)</span><small>câmpul unei sarcini punctiforme</small></p>
+      <p class="fm"><span class="mf"><i>U</i> = <i>E</i>·<i>d</i></span><small>câmp uniform, <i>d</i> = distanța dintre armături</small></p>
+      <p class="fm"><span class="mf"><i>L</i> = <i>q</i>·<i>U</i></span><small>lucrul câmpului pentru deplasarea sarcinii <i>q</i></small></p>
+      <p class="fm"><span class="mf"><i>qU</i> = <i>mv</i><sup>2</sup>/2</span><small>particulă accelerată din repaus</small></p>
+    </div>
+    <p>Un electron-volt (1 eV = 1,602·10<sup>−19</sup> J) este energia câștigată de o sarcină elementară accelerată de o tensiune de 1 V.</p>
+  </div>
+  <div class="lab" data-lab="field"></div>
+  <div class="quiz" data-quiz="10"></div>
+</section>
+
+<section class="page" id="cap-11" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 11</p>
+    <h1>Condensatorul plan. Capacitatea electrică</h1>
+    <p class="lead">Două armături apropiate, separate de un izolator, pot înmagazina sarcină și energie. Geometria lor decide cât.</p></header>
+  <div class="theory">
+    <p>Un condensator încărcat la tensiunea <i>U</i> are armăturile încărcate cu <i>+Q</i> și <i>−Q</i>. Raportul dintre sarcină și tensiune este constant pentru un condensator dat și se numește <b>capacitate</b>. La condensatorul plan, capacitatea crește cu aria armăturilor, scade cu distanța dintre ele și crește dacă între armături se introduce un dielectric.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>C</i> = <i>Q</i>/<i>U</i></span><small>în farazi (F)</small></p>
+      <p class="fm"><span class="mf"><i>C</i> = <i>ε</i><sub>0</sub>·<i>ε</i><sub>r</sub>·<i>S</i>/<i>d</i></span><small>condensatorul plan</small></p>
+      <p class="fm"><span class="mf"><i>W</i> = <i>CU</i><sup>2</sup>/2 = <i>QU</i>/2</span><small>energia înmagazinată</small></p>
+      <p class="fm"><span class="mf"><i>C</i><sub>s</sub>: 1/<i>C</i> = Σ 1/<i>C</i><sub>i</sub></span><small>serie. În paralel: <i>C</i> = Σ <i>C</i><sub>i</sub></small></p>
+    </div>
+  </div>
+  <div class="lab" data-lab="cond"></div>
+  <div class="quiz" data-quiz="11"></div>
+</section>
+
+<section class="page" id="cap-12" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 12</p>
+    <h1>Curentul electric. Intensitatea și rezistența electrică</h1>
+    <p class="lead">Curentul electric este mișcarea ordonată a purtătorilor de sarcină. Rezistența unui fir depinde de material, lungime și secțiune.</p></header>
+  <div class="theory">
+    <p>Într-un conductor metalic, purtătorii de sarcină sunt electronii. Sensul convențional al curentului este de la borna <b>+</b> la borna <b>−</b>, deci opus sensului de mișcare al electronilor. <b>Intensitatea curentului</b> este sarcina care trece prin secțiunea conductorului în unitatea de timp.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>I</i> = Δ<i>q</i>/Δ<i>t</i></span><small>în amperi (A) = C/s</small></p>
+      <p class="fm"><span class="mf"><i>R</i> = <i>ρ</i>·<i>l</i>/<i>S</i></span><small><i>ρ</i> = rezistivitatea, în Ω·m</small></p>
+      <p class="fm"><span class="mf"><i>R</i> = <i>R</i><sub>0</sub>(1 + <i>α</i>·<i>t</i>)</span><small>dependența rezistenței metalelor de temperatură</small></p>
+      <p class="fm"><span class="mf"><i>N</i> = <i>q</i>/<i>e</i></span><small>numărul de electroni care au trecut</small></p>
+    </div>
+    <p>Rezistența crește cu lungimea și scade cu secțiunea. La metale, ea crește și cu temperatura.</p>
+  </div>
+  <div class="lab" data-lab="wire"></div>
+  <div class="quiz" data-quiz="12"></div>
+</section>
+
+<section class="page" id="cap-13" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 13</p>
+    <h1>Legea lui Ohm. Reostatul. Potențiometrul</h1>
+    <p class="lead">La un rezistor ohmic, curentul crește proporțional cu tensiunea aplicată. Panta graficului arată rezistența.</p></header>
+  <div class="theory">
+    <p>Legea lui Ohm pentru o porțiune de circuit leagă cele trei mărimi de bază. Graficul <i>I</i>(<i>U</i>) al unui rezistor ohmic este o dreaptă prin origine, iar panta ei este 1/<i>R</i>. Un bec nu e ohmic: filamentul se încălzește, rezistența crește, iar graficul se curbează.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>I</i> = <i>U</i>/<i>R</i></span><small>legea lui Ohm pentru o porțiune de circuit</small></p>
+      <p class="fm"><span class="mf"><i>R</i> = <i>U</i>/<i>I</i></span><small>în ohmi (Ω) = V/A</small></p>
+      <p class="fm"><span class="mf"><i>U</i><sub>ieș</sub> = <i>U</i>·<i>R</i><sub>jos</sub>/<i>R</i><sub>tot</sub></span><small>potențiometru fără sarcină (divizor de tensiune)</small></p>
+    </div>
+    <p><b>Reostatul</b> este un rezistor cu rezistență variabilă, montat în serie pentru a regla curentul. <b>Potențiometrul</b> este același tip de element, montat ca divizor de tensiune pentru a regla tensiunea. Dacă la ieșire conectezi un consumator, tensiunea scade, mai ales când rezistența lui e mică.</p>
+  </div>
+  <div class="lab" data-lab="ohm"></div>
+  <div class="lab" data-lab="pot"></div>
+  <div class="quiz" data-quiz="13"></div>
+</section>
+
+<section class="page" id="cap-14" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 14</p>
+    <h1>Gruparea rezistoarelor</h1>
+    <p class="lead">Mai multe rezistoare pot fi înlocuite cu unul singur, echivalent. Modul de legare decide dacă se împarte curentul sau tensiunea.</p></header>
+  <div class="theory">
+    <p>În <b>serie</b>, prin toate rezistoarele trece același curent, iar tensiunile se adună. În <b>paralel</b>, tensiunea este aceeași, iar curenții se adună. Rezistența echivalentă în paralel este mai mică decât cea mai mică dintre rezistențe.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>R</i><sub>s</sub> = <i>R</i><sub>1</sub> + <i>R</i><sub>2</sub> + <i>R</i><sub>3</sub></span><small>serie</small></p>
+      <p class="fm"><span class="mf">1/<i>R</i><sub>p</sub> = 1/<i>R</i><sub>1</sub> + 1/<i>R</i><sub>2</sub> + 1/<i>R</i><sub>3</sub></span><small>paralel. Pentru două: <i>R</i> = <i>R</i><sub>1</sub><i>R</i><sub>2</sub>/(<i>R</i><sub>1</sub> + <i>R</i><sub>2</sub>)</small></p>
+      <p class="fm"><span class="mf"><i>U</i><sub>k</sub> = <i>U</i>·<i>R</i><sub>k</sub>/<i>R</i><sub>s</sub></span><small>divizor de tensiune (serie)</small></p>
+      <p class="fm"><span class="mf"><i>I</i><sub>k</sub> = <i>U</i>/<i>R</i><sub>k</sub></span><small>în paralel, fiecare ramură primește tensiunea sursei</small></p>
+    </div>
+  </div>
+  <div class="lab" data-lab="rez"></div>
+  <div class="quiz" data-quiz="14"></div>
+</section>
+
+<section class="page" id="cap-15" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 15</p>
+    <h1>Sursa de tensiune. Legea lui Ohm pentru întregul circuit. Gruparea generatoarelor</h1>
+    <p class="lead">O sursă reală are rezistență internă. De aceea tensiunea la borne scade atunci când ea debitează curent.</p></header>
+  <div class="theory">
+    <p>Tensiunea electromotoare <i>E</i> este lucrul mecanic al forțelor neelectrice pe unitatea de sarcină transportată prin sursă. Curentul prin circuitul întreg trece prin rezistența exterioară <i>R</i> și prin rezistența internă <i>r</i>. Puterea transmisă consumatorului este maximă când <i>R</i> = <i>r</i>, dar atunci randamentul este de numai 50%.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>I</i> = <i>E</i>/(<i>R</i> + <i>r</i>)</span><small>legea lui Ohm pentru întregul circuit</small></p>
+      <p class="fm"><span class="mf"><i>U</i> = <i>E</i> − <i>I</i>·<i>r</i> = <i>I</i>·<i>R</i></span><small>tensiunea la borne; <i>u</i> = <i>I</i>·<i>r</i> este tensiunea interioară</small></p>
+      <p class="fm"><span class="mf"><i>I</i><sub>sc</sub> = <i>E</i>/<i>r</i></span><small>curentul de scurtcircuit</small></p>
+      <p class="fm"><span class="mf"><i>η</i> = <i>R</i>/(<i>R</i> + <i>r</i>)</span><small>randamentul circuitului</small></p>
+      <p class="fm"><span class="mf"><i>E</i><sub>s</sub> = <i>nE</i>, <i>r</i><sub>s</sub> = <i>nr</i></span><small><i>n</i> generatoare identice în serie</small></p>
+      <p class="fm"><span class="mf"><i>E</i><sub>p</sub> = <i>E</i>, <i>r</i><sub>p</sub> = <i>r</i>/<i>n</i></span><small><i>n</i> generatoare identice în paralel</small></p>
+    </div>
+  </div>
+  <div class="lab" data-lab="source"></div>
+  <div class="quiz" data-quiz="15"></div>
+</section>
+
+<section class="page" id="cap-16" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 16</p>
+    <h1>Rețele electrice. Teoremele lui Kirchhoff</h1>
+    <p class="lead">Când circuitul are mai multe surse și ramuri, nu mai ajung formulele de serie și paralel. Cele două teoreme ale lui Kirchhoff duc la un sistem de ecuații.</p></header>
+  <div class="theory">
+    <p>Într-o rețea, un <b>nod</b> este punctul în care se întâlnesc cel puțin trei conductoare, iar un <b>ochi</b> este un contur închis format din ramuri. Teorema I exprimă conservarea sarcinii electrice. Teorema a II-a exprimă conservarea energiei pe un contur.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf">Σ <i>I</i><sub>intră</sub> = Σ <i>I</i><sub>iese</sub></span><small>teorema I, pentru un nod</small></p>
+      <p class="fm"><span class="mf">Σ <i>E</i> = Σ <i>I</i>·<i>R</i></span><small>teorema a II-a, pentru un ochi. Alegi un sens de parcurgere.</small></p>
+    </div>
+    <p>Semne: o sursă se ia cu plus dacă parcurgerea o străbate de la − la +. Un curent se ia cu plus dacă are sensul parcurgerii. Dacă rezolvând obții un curent negativ, sensul lui real este opus celui ales.</p>
+    <p>În simulare, ambele surse au borna + sus, iar <i>I</i><sub>3</sub> coboară prin rezistorul din mijloc. Ecuațiile sunt <i>I</i><sub>3</sub> = <i>I</i><sub>1</sub> + <i>I</i><sub>2</sub>, <i>E</i><sub>1</sub> = <i>I</i><sub>1</sub><i>R</i><sub>1</sub> + <i>I</i><sub>3</sub><i>R</i><sub>3</sub> și <i>E</i><sub>2</sub> = <i>I</i><sub>2</sub><i>R</i><sub>2</sub> + <i>I</i><sub>3</sub><i>R</i><sub>3</sub>.</p>
+  </div>
+  <div class="lab" data-lab="kirch"></div>
+  <div class="quiz" data-quiz="16"></div>
+</section>
+
+<section class="page" id="cap-17" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 17</p>
+    <h1>Energia și puterea electrică. Efectul Joule. Protecție</h1>
+    <p class="lead">Curentul transportă energie. O parte ajunge la consumator, iar o parte se transformă în căldură în conductoare.</p></header>
+  <div class="theory">
+    <p>Energia electrică consumată într-o porțiune de circuit este produsul dintre tensiune, curent și timp. La trecerea curentului printr-un rezistor, energia se degajă sub formă de căldură (<b>efectul Joule</b>). Pe acest efect funcționează fierbătoarele, dar el limitează și curentul admis într-un fir.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>W</i> = <i>U</i>·<i>I</i>·<i>t</i></span><small>energia, în J. 1 kWh = 3,6·10<sup>6</sup> J</small></p>
+      <p class="fm"><span class="mf"><i>P</i> = <i>U</i>·<i>I</i> = <i>R</i>·<i>I</i><sup>2</sup> = <i>U</i><sup>2</sup>/<i>R</i></span><small>puterea, în W</small></p>
+      <p class="fm"><span class="mf"><i>Q</i> = <i>R</i>·<i>I</i><sup>2</sup>·<i>t</i></span><small>legea Joule–Lenz</small></p>
+    </div>
+    <h2>Protecția la curentul electric</h2>
+    <p>Curentul care trece prin corpul omenesc poate provoca contracții musculare, arsuri sau perturbarea ritmului inimii. Pericolul depinde de intensitate, de durată și de traseul prin corp. <b>Siguranțele fuzibile și automatele</b> întrerup circuitul la supracurent (scurtcircuit sau suprasarcină). <b>Împământarea</b> duce curentul de scurgere în pământ, iar <b>dispozitivul diferențial</b> deconectează rapid circuitul la scurgeri.</p>
+    <ul>
+      <li>Nu folosi aparate cu cabluri deteriorate sau cu mâinile ude.</li>
+      <li>Scoate aparatul din priză înainte să-l desfaci.</li>
+      <li>Nu înlocui o siguranță cu una de curent mai mare și nu o ocoli.</li>
+    </ul>
+  </div>
+  <div class="lab" data-lab="cost"></div>
+  <div class="lab" data-lab="joule"></div>
+  <div class="lab" data-lab="fuse"></div>
+  <div class="quiz" data-quiz="17"></div>
+</section>
+
+<section class="page" id="cap-18" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 18</p>
+    <h1>Efectul magnetic al curentului electric. Inducția magnetică</h1>
+    <p class="lead">Orice curent electric creează în jurul lui un câmp magnetic, iar un câmp magnetic acționează cu o forță asupra unui conductor parcurs de curent.</p></header>
+  <div class="theory">
+    <p><b>Inducția magnetică</b> <i>B</i> (în tesla, T) caracterizează câmpul magnetic. Direcția ei se află cu regula burghiului sau a mâinii drepte. Câmpul magnetic acționează asupra unui conductor parcurs de curent cu <b>forța electromagnetică</b>, perpendiculară pe conductor și pe <i>B</i>.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf"><i>B</i> = <i>μ</i><sub>0</sub><i>I</i>/(2π<i>d</i>)</span><small>fir rectiliniu foarte lung, la distanța <i>d</i></small></p>
+      <p class="fm"><span class="mf"><i>B</i> = <i>μ</i><sub>0</sub><i>I</i>/(2<i>R</i>)</span><small>în centrul unei spire circulare</small></p>
+      <p class="fm"><span class="mf"><i>B</i> = <i>μ</i><sub>0</sub><i>N</i><i>I</i>/<i>l</i></span><small>în interiorul unui solenoid lung</small></p>
+      <p class="fm"><span class="mf"><i>μ</i><sub>0</sub> = 4π·10<sup>−7</sup> T·m/A</span><small>permeabilitatea vidului</small></p>
+      <p class="fm"><span class="mf"><i>F</i> = <i>B</i>·<i>I</i>·<i>l</i>·sin<i>α</i></span><small>forța asupra unui conductor de lungime <i>l</i>; <i>α</i> = unghiul dintre conductor și <i>B</i></small></p>
+    </div>
+  </div>
+  <div class="lab" data-lab="bfield"></div>
+  <div class="lab" data-lab="force"></div>
+  <div class="quiz" data-quiz="18"></div>
+</section>
+
+<section class="page" id="cap-19" data-domain="volt" hidden>
+  <header class="chap-head"><p class="kicker">Electricitate și magnetism · capitolul 19</p>
+    <h1>Inducția electromagnetică</h1>
+    <p class="lead">Un câmp magnetic variabil produce tensiune electrică. Pe acest principiu funcționează generatoarele din centralele electrice.</p></header>
+  <div class="theory">
+    <p>Fluxul magnetic măsoară câte linii de câmp trec printr-o suprafață. Când fluxul printr-un circuit se modifică, în circuit apare o <b>tensiune electromotoare indusă</b>. Sensul curentului indus este cel care se opune cauzei ce l-a produs (legea lui Lenz). Semnul minus din formulă exprimă această opoziție.</p>
+    <div class="formulas">
+      <p class="fm"><span class="mf">Φ = <i>B</i>·<i>S</i>·cos<i>α</i></span><small>fluxul magnetic, în weberi (Wb)</small></p>
+      <p class="fm"><span class="mf"><i>e</i> = −ΔΦ/Δ<i>t</i></span><small>legea inducției electromagnetice</small></p>
+      <p class="fm"><span class="mf"><i>e</i> = <i>B</i>·<i>l</i>·<i>v</i>·sin<i>α</i></span><small>conductor de lungime <i>l</i> care se mișcă cu viteza <i>v</i> în câmpul <i>B</i></small></p>
+    </div>
+    <p>În simulare, o tijă alunecă pe două șine într-un câmp perpendicular pe plan. Aria buclei crește, deci fluxul crește uniform, iar tensiunea indusă rămâne constantă.</p>
+  </div>
+  <div class="lab" data-lab="induc"></div>
+  <div class="quiz" data-quiz="19"></div>
+</section>
+
+<section class="page" id="formular" hidden>
+  <header class="chap-head"><p class="kicker">Recapitulare</p>
+    <h1>Formularul clasei a X-a</h1>
+    <p class="lead">Formulele principale din toate capitolele, într-un singur loc.</p></header>
+  <div class="fgrid" id="formGrid"></div>
+</section>
+
+
+
+
+</main>
+</div>
+
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drTitle" aria-hidden="true">
+  <div class="dr-head"><h2 id="drTitle">Setări</h2><button type="button" class="hbtn icon" id="drClose" aria-label="Închide setările"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+  <div class="dr-body">
+    <section><h3>Temă</h3><div class="swatches" id="swGrid" role="radiogroup" aria-label="Temă"></div></section>
+    <section><h3>Muzică de fundal</h3>
+      <div class="sgrid" id="sndGrid" role="radiogroup" aria-label="Muzică de fundal"></div>
+      <div class="vol"><label for="sndVol">Volum</label><input type="range" id="sndVol" min="0" max="100" step="1" value="40"><output id="sndVolOut">40%</output></div>
+      <div class="setrow"><button type="button" class="btn" id="sndPlay">Pornește muzica</button></div>
+      <p class="note" id="sndNote">Browserul pornește sunetul doar după un clic. Alegerea și volumul se rețin pentru data viitoare.</p>
+    </section>
+    <section><h3>Sunete la hover și clic</h3>
+      <label class="tgl" for="uiOn"><input type="checkbox" id="uiOn" checked> Sunete blânde la butoane</label>
+      <div class="vol"><label for="uiVol">Volum efecte</label><input type="range" id="uiVol" min="0" max="100" step="1" value="40"><output id="uiVolOut">40%</output></div>
+    </section>
+    <section><h3>Progres</h3>
+      <p class="note">Un capitol se bifează când răspunzi corect la cel puțin 2 din 3 întrebări.</p>
+      <div class="setrow"><button type="button" class="btn ghost" id="resetBtn">Șterge progresul</button></div>
+    </section>
+  </div>
+</aside>
+
+<script src="js/1-core-termodinamica.js"></script>
+<script src="js/2-electricitate.js"></script>
+<script src="js/3-mecanica.js"></script>
+<script src="js/4-sunet.js"></script>
+<script src="js/5-interfata.js"></script>
+<script src="js/6-aplicatie.js"></script>
+</body>
+</html>
